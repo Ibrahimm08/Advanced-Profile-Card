@@ -1,6 +1,7 @@
 html {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   height: 100%;
+  user-select: none;
 }
 
 body {
@@ -32,14 +33,16 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   backface-visibility: hidden;
-  width: 100;
-  height: 100;
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
 }
 
+/* Front of the card */
 .front {
   background-color: rgb(31, 120, 255);
   color: white;
+  transform: rotateY(180deg);
 }
 
 .front * {
@@ -143,11 +146,56 @@ body {
 }
 
 
+
+
+
+/* Back of the card */
 .back {
   background-color: rgb(253, 84, 54);
   color: white;
-  transform: rotateY(180deg);
+  justify-content: center;
+  align-items: center;
+  /* transform: rotateY(180deg); */
 }
+.back .container{
+  margin-top: 60%;
+  align-self: center;
+  text-align: center;
+  flex: 5;
+}
+.back .container ul{
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: center;
+  flex-direction: column;
+  overflow-y: hidden;
+  color: rgb(0, 255, 34);
+  margin-top: -20px; margin-left: -30px;
+  height: 40px;
+}
+.back-content{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  overflow: hidden;
+  align-self: flex-end;
+  justify-content: center;
+  background-color: gray;
+}
+.back-content input{
+  width: 40px;
+  border: none;
+  outline: none;
+}
+.back-content button{
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+}
+
+
 
 .card.flip {
   transform: rotateY(180deg);
